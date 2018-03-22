@@ -1,0 +1,66 @@
+{% extends "base_pro.html" %}
+
+{% block stylesheet %}
+<link rel="stylesheet" type="text/css" href="css/anno.css">
+{% endblock %}
+
+{% block username %}
+	<a>{{username}}</a>
+{% endblock %}
+
+{% block content %}
+
+	<h1>Start a project</h1>
+
+	{% block existingProjects %}
+
+	{% endblock %}
+
+	<div id="new-project">
+		<h3>
+			New Project
+		</h3>
+		<form method="post" id="search_form" action="/s">
+			<table  class="table-condensed col-md-12">
+				<thead>
+						<tr>
+							<th class="col-md-3"></th>
+							<th class="col-md-3"></th>
+							<th class="col-md-6"></th>
+						</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>
+							<label for="author">Author</label>
+						</td>
+						<td>
+							<input type="text" name="author" id="author" value="">
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<label for="title">Title</label>
+						</td>
+						<td>
+							<input type="text" name="title" id="title" value="">	
+						</td>
+						<td id="searchErr" style="color: red">
+							{{searchErr}}
+						</td>
+					</tr>
+					<tr>
+						<td>
+							<button type="input" id="search_submit" onclick="validate_search_form()"> Search </button>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</form>
+	</div>
+{% endblock%}
+
+
+{% block script %}
+<script type="text/javascript" src="/js/main.js"></script>
+{% endblock %}

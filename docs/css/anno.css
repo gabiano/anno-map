@@ -1,0 +1,27 @@
+body {
+    background-color:   #ebedef;
+}
+
+.color-button {
+    border: 3px;
+    border-style: solid;
+    border-color: #ebedef;
+    color: white;
+    padding: 15px 15px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.nav-username {
+	float: right;
+}
+
+
+div {
+    padding-left: 0px;
+    margin-left: 0px;
+}
+
+ol {
+    padding-left: 1.3em;
+}

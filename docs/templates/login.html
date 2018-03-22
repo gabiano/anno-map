@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="content">
+	<form method="post">
+		<table class="table-condensed col-md-12">
+			<thead class="thead-inverse">
+				<tr>
+					<th class="col-md-3"></th>
+					<th class="col-md-3"></th>
+					<th class="col-md-6"></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<label for="username">Username</label>
+					</td>
+					<td>
+						<input type="text" name="username" value="{{username}}">
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="username">Password</label>
+					</td>
+					<td>
+						<input type="password" name="password" value="">	
+					</td>
+					<td style="color: red">
+						{% if passwordErr %}
+						<p>
+							Login not possible.<br>
+							Check username and password.
+						</p>
+						{% endif %}
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<input type="submit" value="Log in">
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</form>
+</div>
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "base_pro.html" %}
+
+{% block stylesheet %}
+<link rel="stylesheet" type="text/css" href="/css/anno.css">
+{% endblock %}
+
+{% block username %}
+	<a>{{username}}</a>
+{% endblock %}
+
+{% block project_name %}
+	<a>{{project_name}}</a>
+{% endblock %}
+
+{% block script_head %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+	<div class="col-md-6">
+		<div id="poem">
+			<h3>{{poem['title']}}</h3>
+			<p id="poem-content" onclick="setMark()">
+				<span class="poem-start" id="poem-start">{% for l in poem['lines'] %}{{l}}<br>{% endfor %}</span>
+			</p>
+			<p><i>{{poem['author']}}</i></p>
+		</div>
+		<div id="comment-container">
+		<h4>Comments</h4>
+			<ol id="comment-list">
+			</ol>
+		</div>
+	</div>
+	<div class="col-md-6" >
+		<h3>Add comment</h3>
+		<table class="table-condensed">
+			<tr>
+				<td>
+					<textarea id="comments" cols="30" rows="10" value="" disabled></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button onclick="deleteMark()">Remove comment</button>
+					<button onclick="insertComment()">Append comment</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<button onclick="saveProject()">Save Project</button>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<p id="save-message">
+					</p>
+					
+				</td>
+				<td>
+					<p id="jqXHR-answer">
+					</p>
+					
+				</td>
+			</tr>
+		</table>
+		<div id="color-picker" onload="colors()">
+			<h4>Colors</h4>
+			<div id="color-picker">
+
+			</div> 
+		</div>
+	</div>
+</div>
+{% endblock %}
+
+{% block script %}
+<script type="text/javascript" src="/js/pro.js"></script>
+
+{% if comments is defined %}
+<script type="text/javascript">
+	renderComments({{comments|safe}});
+</script>
+{% endif %}
+{% endblock %}
